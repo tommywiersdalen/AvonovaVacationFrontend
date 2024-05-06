@@ -17,9 +17,6 @@
                                     <label for="from">From date*</label>
                                     <input type="date" id="from" class="border rounded-md p-2" v-model="fromDate" />
                                 </div>
-                                <div>
-                                    <p>seleted {{ fromDate }}</p>
-                                </div>
                                 <div class="flex flex-col w-1/4">
                                     <label for="to">To date*</label>
                                     <input type="date" id="to" class="border rounded-md p-2" v-model="toDate" />
@@ -113,7 +110,7 @@ const submitForm = async () => {
         denied: denied,
         daysRequested: daysRequested.value
     }
-    console.log(vacation);
+
     if (!validateDates(fromDate.value, toDate.value, daysRequested.value)) {
         return;
 

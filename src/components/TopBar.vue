@@ -12,7 +12,7 @@
     </nav>
 </template>
 <script setup lang="ts">
-import { computed, onMounted, ref, watch, } from 'vue';
+import { onMounted, ref, watch, } from 'vue';
 import { useCountryStore } from '@/stores/CountryContext';
 import { useEmployeesStore } from '@/stores/Employees';
 
@@ -31,13 +31,10 @@ watch(() => countryStore.countryCode, (newVal) => {
     selectedCountry.value = newVal;
 })
 
-const country = computed(() => countryStore.countryCode);
-console.log(country.value);
-
 
 
 const updateCountry = () => {
-    console.log(selectedCountry.value);
+
     countryStore.updateCountryCode(selectedCountry.value);
     employeeStore.fetchEmployees();
 
